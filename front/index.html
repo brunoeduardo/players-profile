@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Players Profile</h1>
+
+    <form class="form-container">
+        <fieldset>
+            <legend>Choose the information that you need in the payload:</legend>
+
+            <div>
+                <input type="checkbox" id="name" name="infoValue" value="name" checked disabled />
+                <label for="name">Name</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="age" name="infoValue" value="age" />
+                <label for="age">Age</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="birthdate" name="infoValue" value="birthdate" />
+                <label for="birthdate">Birthdate</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="position" name="infoValue" value="position" />
+                <label for="position">Position</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="country" name="infoValue" value="country" />
+                <label for="country">Country</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="lastAttended" name="infoValue" value="lastAttended" />
+                <label for="lastAttended">Last Attended</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="experience" name="infoValue" value="experience" />
+                <label for="experience">Experience</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="draftYear" name="infoValue" value="draftYear" />
+                <label for="draftYear">Draft Year</label>
+            </div>
+
+        </fieldset>
+        <button id="btn-send" class="btn" type="submit">Send</button>
+    </form>
+    <h2>Result</h2>
+    <div id="response-body"></div>
+</body>
+<script src="script.js"></script>
+
+</html>
