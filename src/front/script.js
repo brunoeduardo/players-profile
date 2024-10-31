@@ -1,14 +1,17 @@
 const url = 'http://localhost:4000/graphql';
-let queryItens = '';
 
+document.getElementById("btn-send").addEventListener("click", (event) => {
+    event.preventDefault()
+    getData(createQuery());   
+});
 
-const getData = async () => {
+const getData = async (query) => {
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/JSON'
         },
-        body: JSON.stringify({query: `{${queryItens}}`})
+        body: `${query}`
     }
 
     try {
@@ -17,21 +20,31 @@ const getData = async () => {
         if(!response.ok) throw new Error(`Response status: ${response.status}`);
         
         const json = await response.json();
-        
-        document.getElementById('response-body').innerHTML = JSON.stringify(json.data);
+        const formatOptions = {
+            indent: 3,
+            lineNumbers: true,
+            quoteKeys: true,
+            trailingCommas: true 
+   };
+        document.getElementById('response-body').innerHTML = prettyPrintJson.toHtml(json.data, formatOptions);
         
     } catch (error) {
         console.error(error.message)
     }
 }
 
-document.getElementById("btn-send").addEventListener("click", (event) => {
-    event.preventDefault()
-    
-    queryItens = '';
-    
+const createQuery = () => {
+    let queryItens = '';
+    const idPlayer = document.getElementById('playerId').value.trim();
+
     document.getElementsByName('infoValue').forEach(e => {
         if(e.checked) queryItens += `${e.value} `
-    })
-    getData();
-});
+    });
+
+    let fullQuerry = (
+        idPlayer ?
+        JSON.stringify({query: `{player(_id: "${idPlayer}"){${queryItens}}}`}) :
+        JSON.stringify({query: `{players{${queryItens}}}`}));
+
+    return fullQuerry;
+}

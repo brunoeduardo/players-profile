@@ -9,6 +9,6 @@ const playerSchema = new mongoose.Schema({
     lastAttended: {type: mongoose.Schema.Types.String},
     experience: {type: mongoose.Schema.Types.Number},
     draftYear: {type: mongoose.Schema.Types.Number}
-}, { versionKey: false });
+}, { versionKey: false , collection: 'player'});
 
-module.exports = mongoose.model('model-player', playerSchema);
+module.exports = mongoose.model('modelPlayer', playerSchema);

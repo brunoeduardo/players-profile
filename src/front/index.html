@@ -6,28 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Players profile</title>
     <link rel="stylesheet" href="style.css">
+    <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/css/pretty-print-json.css>
+
 </head>
 
 <body>
     <h1>Players Profile</h1>
-
     <form class="form-container">
         <fieldset>
+            <legend>Use a specific ID(not mandatory):</legend>
+            <div>
+                <label for="playerId">Player ID</label>
+                <input type="text" id="playerId" name="playerId" value="" />
+            </div>
+        </fieldset>
+        <fieldset>
             <legend>Choose the information that you need in the payload:</legend>
+            <div>
+                <input type="checkbox" id="name" name="infoValue" value="_id" checked disabled />
+                <label for="name">ID</label>
+            </div>
 
             <div>
-                <input type="checkbox" id="name" name="infoValue" value="name" checked disabled />
+                <input type="checkbox" id="name" name="infoValue" value="name" checked />
                 <label for="name">Name</label>
             </div>
 
             <div>
                 <input type="checkbox" id="age" name="infoValue" value="age" />
                 <label for="age">Age</label>
-            </div>
-
-            <div>
-                <input type="checkbox" id="birthdate" name="infoValue" value="birthdate" />
-                <label for="birthdate">Birthdate</label>
             </div>
 
             <div>
@@ -62,5 +69,6 @@
     <div id="response-body"></div>
 </body>
 <script src="script.js"></script>
+<script src=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/pretty-print-json.min.js></script>
 
 </html>

@@ -3,7 +3,7 @@ const { gql} = require('apollo-server-express');
 
 const schemaPlayer = gql(`
     type Player {
-        id: ID!
+        _id: ID!
         name: String
         age: Int
         position: String
@@ -15,7 +15,7 @@ const schemaPlayer = gql(`
 
     type Query {
         players: [Player],
-        player(id: ID!): Player
+        player(_id: ID!): Player
     }
 `)
 
